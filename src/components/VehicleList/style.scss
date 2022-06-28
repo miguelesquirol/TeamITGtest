@@ -1,3 +1,155 @@
+@use "../../assets/style/index.scss" as *;
+
 .VehicleList {
-  width: 100%;
+    width: 100%;
+}
+.cards {
+    width: auto;
+    overflow: auto;
+    margin-bottom: 100px;
+
+    &-wraper {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0 10px;
+
+        @include media(mobile) {
+            width: 100% !important;
+        }
+
+        @include media(tablet) {
+            width: 100% !important;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        @include media(desktop) {
+            flex-wrap: nowrap;
+            flex-direction: row;
+            width: calc(var(--vehicle-number) * 450px) !important;
+        }
+    }
+}
+
+.vehicle {
+    &-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        @include media(mobile) {
+            flex-direction: row;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        @include media(tablet) {
+            width: 50%;
+            flex-direction: column;
+        }
+        @include media(desktop) {
+            width: 470px;
+        }
+
+        > div {
+            align-self: auto;
+
+            @include media(mobile) {
+                align-self: stretch;
+            }
+            @include media(tablet) {
+                align-self: auto;
+                width: 100%;
+                height: 200px;
+            }
+            @include media(tablet) {
+                height: auto;
+            }
+        }
+
+        &:first-child .vehicle-body {
+            border-top: none;
+        }
+
+        &__title {
+            padding: 5px 0;
+            @include media(mobile) {
+                font-size: 1rem;
+                padding: 0;
+                margin: 0;
+                letter-spacing: 1.3px;
+                word-spacing: 2px;
+            }
+            @include media(tablet) {
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+                display: inline-block;
+                margin-top: 9px;
+                font-size: 1.3rem;
+                letter-spacing: 0.2px;
+                margin-bottom: 19px;
+            }
+            @include media(desktop) {
+                margin-top: 11px;
+                font-size: 1.4rem;
+                margin-bottom: 22px;
+            }
+        }
+
+        &__price {
+            @include media(mobile) {
+                font-size: 0.9rem;
+                letter-spacing: 1.5px;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            @include media(tablet) {
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+
+            @include media(desktop) {
+                margin-bottom: 12px;
+            }
+            span {
+                letter-spacing: 2px;
+            }
+        }
+
+        &__description {
+            @include media(mobile) {
+                margin-top: 9px;
+                font-size: 0.8rem;
+            }
+            @include media(tablet) {
+                font-size: 0.9rem;
+                margin-top: 8px;
+            }
+        }
+    }
+
+    &-img img {
+        object-fit: cover;
+        @include media(mobile) {
+            width: 109px;
+            height: 100%;
+        }
+        @include media(tablet) {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &-body {
+        @include media(mobile) {
+            padding: 17px 20px;
+            border-top: 1px solid #eee;
+        }
+        @include media(tablet) {
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid #eee;
+        }
+    }
 }

@@ -1,22 +1,44 @@
-import React from 'react';
+import * as React from 'react';
+import VehicleCard from '../VehicleCard';
+import { useState } from 'react';
 import useData from './useData';
 import './style.scss';
 
 export default function VehicleList() {
   // eslint-disable-next-line no-unused-vars
   const [loading, error, vehicles] = useData();
+  const [vehiclesBundle, setVehiclesBundle] = React.useState([]);
+
 
   if (loading) {
     return <div data-testid="loading">Loading</div>;
   }
 
   if (error) {
-    return <div data-testid="error">{ error }</div>;
+    return <div data-testid="error">{error}</div>;
   }
+
+
+  setTimeout(function () {
+    setVehiclesBundle(vehicles);
+  }, 2000);
+
+  console.log(vehiclesBundle[0]);
+
+  var result = vehiclesBundle.filter(x => x.price);
+
+  document.documentElement.style.setProperty('--vehicle-number', result.length);
+
 
   return (
     <div data-testid="results">
-      <p>List of vehicles will be displayed here</p>
+      <div className="cards">
+        <div className="cards-wraper" >
+          {result.map(element => <VehicleCard bundle={element} key={element.id} />)}
+        </div>
+      </div>
+
+
       <p>
         Visit
         <a href="/api/vehicles.json" target="_blank"> /api/vehicles.json</a>
@@ -35,6 +57,6 @@ export default function VehicleList() {
         {' '}
         (vehicle without any price)
       </p>
-    </div>
+    </div >
   );
 }
