@@ -10,8 +10,7 @@ const ResponsiveImage = ({ mobileImage, desktopImage, alt }) => {
       </picture>
     </div>
 
-
   );
-}
+};
 
 export default ResponsiveImage;

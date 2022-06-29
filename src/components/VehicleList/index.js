@@ -7,17 +7,10 @@ export default function VehicleList() {
   // eslint-disable-next-line no-unused-vars
   const [loading, error, vehicles] = useData();
   const [vehiclesBundle, setVehiclesBundle] = React.useState([]);
-
-  if (loading) {
-    return <div data-testid="loading">Loading</div>;
-  }
-
-  if (error) {
-    return <div data-testid="error">{error}</div>;
-  }
+  const [isLoading, setIsLoading] = React.useState(true);
 
   setTimeout(() => {
-    setVehiclesBundle(vehicles);
+    setVehiclesBundle(vehicles); setIsLoading(false);
   }, 2000);
 
   const result = vehiclesBundle.filter((x) => x.price);
@@ -26,6 +19,9 @@ export default function VehicleList() {
 
   return (
     <div data-testid="results">
+
+      {isLoading ? 'Loading' : ''}
+
       <div className="cards">
         <div className="cards-wraper">
           {result.map((element) => <VehicleCard bundle={element} key={element.id} />)}
