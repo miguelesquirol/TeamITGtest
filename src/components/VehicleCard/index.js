@@ -1,17 +1,21 @@
 import React from 'react';
 import ResponsiveImage from '../ResponsiveImage';
-const vehicleCard = (props) => {
-        return <div className="vehicle-card">
-                <ResponsiveImage desktopImage={props.bundle.media[0].url} mobileImage={props.bundle.media[1].url} alt={props.bundle.media[0].name} />
-                <div class="vehicle-body">
-                        <h1 className="vehicle-card__title">{props.bundle.id}</h1>
-                        <p className="vehicle-card__price">From <span>{props.bundle.price}</span></p>
 
-                        <p className="vehicle-card__description"> {props.bundle.description}</p>
-                </div>
+const vehicleCard = ({ bundle }) => (
+  <div className="vehicle-card">
+    <ResponsiveImage desktopImage={bundle.media[0].url} mobileImage={bundle.media[1].url} alt={bundle.media[0].name} />
+    <div className="vehicle-body">
+      <h1 className="vehicle-card__title">{bundle.id}</h1>
+      <p className="vehicle-card__price">
+        From
+        <span>{bundle.price}</span>
+      </p>
 
-
-        </div>;
-}
+      <p className="vehicle-card__description">
+        {bundle.description}
+      </p>
+    </div>
+  </div>
+);
 
 export default vehicleCard;

@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import axios, { get } from 'axios';
+import axios from 'axios';
 
 const url = ('/api/vehicles.json');
 let vehicles = {};
@@ -22,11 +21,11 @@ function fetchVehicleData(urlvar, i) {
     .then((response) => {
       const { data } = response;
       getVehicleInfo(data, i);
-      return data
+      return data;
     })
     .catch((err) => {
       console.log('Error: ', err);
-    })
+    });
 }
 
 function vehiclesLoop() {
@@ -46,7 +45,7 @@ function fetchData(urlvar) {
   axios.get(urlvar)
     .then((response) => {
       const { data } = response;
-      return data
+      return data;
     })
     .then(getVehicles)
     .catch((err) => {
@@ -55,8 +54,6 @@ function fetchData(urlvar) {
 }
 
 fetchData(url);
-
-console.log("bundle", bundle)
 
 export default async function getData() {
   return bundle;
