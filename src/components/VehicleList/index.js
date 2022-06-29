@@ -9,12 +9,16 @@ export default function VehicleList() {
   const [vehiclesBundle, setVehiclesBundle] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
+  // TODO CLEAN THE SETTIME OUT
+
   setTimeout(() => {
     setVehiclesBundle(vehicles); setIsLoading(false);
   }, 2000);
 
+  // CREATES A NEW ARRAY WITH THE CARS ONLY WITH EXISTING PRICE
   const result = vehiclesBundle.filter((x) => x.price);
 
+  // CREATES A CSS VARIABLE OF NUMBER OF VEHICLES
   document.documentElement.style.setProperty('--vehicle-number', result.length);
 
   return (
