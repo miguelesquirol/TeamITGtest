@@ -1,7 +1,6 @@
 import * as React from 'react';
 import VehicleCard from '../VehicleCard';
 import useData from './useData';
-import './style.scss';
 
 export default function VehicleList() {
   // eslint-disable-next-line no-unused-vars

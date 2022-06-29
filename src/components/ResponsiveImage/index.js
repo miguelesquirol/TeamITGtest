@@ -6,7 +6,7 @@ const ResponsiveImage = ({ mobileImage, desktopImage, alt }) => {
       <picture>
         <source media="(max-width: 767px)" srcSet={mobileImage} />
         <source media="(min-width: 768px)" srcSet={desktopImage} />
-        <img src="elva-800w.jpg" alt={alt} />
+        <img src={desktopImage} alt={alt} />
       </picture>
     </div>
 

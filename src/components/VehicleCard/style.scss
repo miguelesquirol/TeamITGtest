@@ -124,6 +124,13 @@
                 margin-top: 8px;
             }
         }
+
+        &__readmore {
+            all: unset;
+            cursor: pointer;
+            font-size: 80%;
+            text-decoration: underline;
+        }
     }
 
     &-img img {
