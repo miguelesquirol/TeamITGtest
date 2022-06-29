@@ -46,8 +46,7 @@ const getVehicles = (data) => {
   vehicles = data;
   vehiclesLoop();
   return vehicles;
-}
-
+};
 // DOES THE FIRST CALL TO THE API
 
 function fetchData(urlvar) {
